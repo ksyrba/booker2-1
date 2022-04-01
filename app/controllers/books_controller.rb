@@ -9,9 +9,14 @@ class BooksController < ApplicationController
   end
 
   def index
-
     @book_new = Book.new
-    @books = Book.includes(:favorited_users).where(created_at: Time.current.all_week).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    @books = Book.includes(:favorited_users).
+      where(created_at: Time.current.all_week).
+      sort {|a,b| 
+      b.favorited_users.size <=> 
+      a.favorited_users.size
+        
+      }
   end
 
   def create
