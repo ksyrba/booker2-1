@@ -16,6 +16,10 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
   
+  has_many :room_users
+  has_many :rooms, through: :room_users
+  has_many :messages
+  
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
