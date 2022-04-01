@@ -1,0 +1,39 @@
+<table class="table table-hover table-inverse">
+  <% if @range == "User" %>
+    <h3>Users search for "<%= @word %>"</h3>
+    <tbody>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Introduction</th>
+      </tr>
+      <% @records.each do |user| %>
+        <tr>
+          <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
+          <td>
+            <%= link_to user.name, user_path(user) %>
+          </td>
+          <td><%= user.introduction %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <h3>Books search for "<%= @word %>"</h3>
+    <tbody>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Opinion</th>
+      </tr>
+      <% @records.each do |book| %>
+        <tr>
+          <td><%= image_tag book.user.get_profile_image, size: '50x50' %></td>
+          <td>
+            <%= link_to book.title, book_path(book) %>
+          </td>
+          <td><%= book.body %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>

@@ -1,0 +1,13 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12 offset-md-0'>
+      <h1>Follow Users</h1>
+      <% if @user.followings.exists? %>
+        <%= render 'users/index',users: @users %>
+      <% else %>
+        <p>ユーザーはいません</p>
+      <% end %>
+      </div>
+  </div>
+</div>
+
