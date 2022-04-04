@@ -7,10 +7,11 @@ class UsersController < ApplicationController
     @books = @user.books
     @book = Book.new
     
-    @today_book = @books.today
-    @yesterday_book = @books.yesterday
-    @the_day_before = @today_book.count / @yesterday_book.count.to_f
     
+    @today_book =  @books.created_today
+    @yesterday_book = @books.created_yesterday
+    @this_week_book = @books.created_this_week
+    @last_week_book = @books.created_last_week
   
     @currentRoomUser = RoomUser.where(user_id: current_user.id)
     @receiveUser = RoomUser.where(user_id: @user.id)

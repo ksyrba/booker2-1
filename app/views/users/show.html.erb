@@ -23,8 +23,8 @@
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
       <%= render 'books/index',books: @books %>
-      <h2>投稿数の前日比・先週比</h2>
-      <%= render 'count_day', user: @user, today_book: @today_book, yesterday_book: @yesterday_book, the_day_before: @the_day_before %>
+      <%= render 'count',books: @books %>
+      
     </div>
   </div>
 </div>
