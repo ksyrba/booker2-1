@@ -5,7 +5,7 @@ class RoomsController < ApplicationController
     @room = Room.create
     @joinCurrentUser = RoomUser.create(user_id: current_user.id, room_id: @room.id)
     @joinUser = RoomUser.create(join_room_params)
-    redirect_to user_room_path(@room.id)
+    redirect_to user_rooms_path(@room.id)
   end
 
   def show
