@@ -1,0 +1,46 @@
+<div class="chat-room">
+ <h1>メッセージ</h1>
+ # ルーム内のユーザー表示部分
+ <% @roomUsers.each do |r| %> 
+ <div class="user-name">
+ <strong>
+     <a class="rooms-user-link" href="/users/<%= r.user.id %>">
+       <%= r.user.nickname %>さん
+     </a>
+ </strong>
+ </div>
+ <% end %>
+ #// ルーム内のユーザー表示部分
+
+ <hr>
+ <div class="chats">
+ 
+   # メッセージ表示部分
+   <div class="chat">
+     <% if @messages.present? %>
+       <% @messages.each do |m| %>
+         <div class="chat-box">
+           <div class="chat-text">
+             <%= m.text %>
+             <%= m.created_at.strftime("%Y-%m-%d %H:%M") %>
+           </div>
+         </div>
+       <% end %>
+       <%else%>
+         <p>メッセージはまだありません</p>
+     <% end %>
+   </div>
+   #// メッセージ表示部分
+   
+   # メッセージ投稿フォーム
+   <div class="posts">
+     <%= form_with model: @message, local: true do |f| %>
+       <%= f.text_field :text, placeholder: "メッセージを入力してください" %>
+       <%= f.hidden_field :room_id, value: @room.id %>
+       <%= f.submit "送信する" %>
+     <% end %>
+   </div>
+   #// メッセージ投稿フォーム
+   
+ </div>
+</div>

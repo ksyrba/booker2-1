@@ -5,7 +5,7 @@ class RoomsController < ApplicationController
     @room = Room.create
     @joinCurrentUser = RoomUser.create(user_id: current_user.id, room_id: @room.id)
     @joinUser = RoomUser.create(join_room_params)
-    redirect_to room_path(@room.id)
+    redirect_to user_room_path(@room.id)
   end
 
   def show
@@ -23,5 +23,5 @@ class RoomsController < ApplicationController
 
   def join_room_params
     params.require(:room_user).permit(:user_id, :room_id).merge(room_id: @room.id)
- end
+  end
 end
