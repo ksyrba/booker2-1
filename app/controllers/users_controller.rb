@@ -17,6 +17,8 @@ class UsersController < ApplicationController
     
     @this_week_book = @books.created_this_week
     @last_week_book = @books.created_last_week
+    
+    
   
     @currentRoomUser = RoomUser.where(user_id: current_user.id)
     @receiveUser = RoomUser.where(user_id: @user.id)

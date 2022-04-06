@@ -22,9 +22,11 @@
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
-      <%= render 'books/index',books: @books %>
-      <%= render 'count',books: @books %>
-      <%= render 'daily',books: @books %>
+      <%= render 'books/index', books: @books %>
+      <%= render 'count' %>
+      <%= render 'daily' %>
+      
+      <%= render 'graph' %>
     </div>
   </div>
 </div>
