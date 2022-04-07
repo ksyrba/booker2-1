@@ -8,6 +8,8 @@ class MessagesController < ApplicationController
     else
       flash[:alert] = "メッセージの送信に失敗しました。"
     end
+    @messages = @room.messages
+    @message = Message.new(room_id: @room.id)
   end
 
   private

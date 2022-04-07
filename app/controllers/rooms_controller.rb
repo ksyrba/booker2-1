@@ -5,10 +5,11 @@ class RoomsController < ApplicationController
     @room = Room.create
     @joinCurrentUser = RoomUser.create(user_id: current_user.id, room_id: @room.id)
     @joinUser = RoomUser.create(join_room_params)
-    redirect_to user_rooms_path(@room.id)
+    redirect_to room_path(@room.id)
   end
 
   def show
+    @user = User.find(params[:id])
     @room = Room.find(params[:id])
     if RoomUser.where(user_id: current_user.id, room_id: @room.id).present?
       @messages = @room.messages

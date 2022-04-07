@@ -12,10 +12,11 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index,:show,:edit,:update] do
     resource :relationships, only: [:create, :destroy]
-    resources :rooms, only: [:create, :show]
-    resources :messages, only: [:create]
+    
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end
+  resources :rooms, only: [:create, :show]
+  resources :messages, only: [:create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
