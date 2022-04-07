@@ -2,8 +2,6 @@ require_relative "boot"
 
 require "rails/all"
 
-User.group_by_day(Arel.sql(known_safe_value)).count
-
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

@@ -6893,6 +6893,11 @@ vm-browserify@^1.0.1:
   resolved "https://registry.npmjs.org/vm-browserify/-/vm-browserify-1.1.2.tgz"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
+vue-chartjs@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-4.0.4.tgz#6480086296a1cafb11e9d659e1ee224089e01018"
+  integrity sha512-OkjOFgz5+cANELyeAph41y3mhW669vDTR3PYCD8PZgVlkAPDVrBtPjUWGTvRx32coYCPIzVQNVr4fH9eoIE2Gw==
+
 watchpack-chokidar2@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/watchpack-chokidar2/-/watchpack-chokidar2-2.0.1.tgz"
