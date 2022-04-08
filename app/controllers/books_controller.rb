@@ -4,6 +4,9 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    unless Tweet.find_by(user_id: current_user.id, book_id: @book.id)
+      current_user.tweets.create(book_id: @book.id)
+    end
     @book_new = Book.new
     @post_comment = PostComment.new
   end

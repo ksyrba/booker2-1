@@ -128,6 +128,8 @@ ActiveRecord::Schema.define(version: 2022_04_08_080757) do
 
   create_table "tweets", force: :cascade do |t|
     t.integer "impressions_count", default: 0
+    t.integer "user_id"
+    t.integer "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
