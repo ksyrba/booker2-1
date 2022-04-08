@@ -59,3 +59,5 @@ gem 'chart-js-rails', '~> 0.1.7'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'jquery-rails'
+
+gem "acts_as_follower", '~> 0.1.1'

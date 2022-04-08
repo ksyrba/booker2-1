@@ -1,20 +1,37 @@
-<h1 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h1>
-
-<div class="message" style="width: 400px;">
-  <% @messages.each do |message| %>
-    <% if message.user_id == current_user.id %>
-      <p style="text-align: right;"><%= message.message %></p>
-    <% else %>
-      <p style="text-align: left;"><%= message.message %></p>
+<div class="chat-room">
+  <h1>メッセージ</h1>
+    <% @RoomUsers.each do |r| %> 
+    <div class="user-name">
+      <strong>
+        <a class="rooms-user-link" href="/users/<%= r.user.id %>">
+          <%= r.user.name %>さん
+        </a>
+      </strong>
+    </div>
     <% end %>
-  <% end %>
-</div>
+ 
+ <div class="chats">
+   <div class="chat">
+     <% if @messages.present? %>
+       <% @messages.each do |m| %>
+         <div class="chat-box">
+           <div class="chat-text">
+             <%= m.message %>
+           </div>
+         </div>
+       <% end %>
+       <%else%>
+         <p>メッセージはまだありません</p>
+     <% end %>
+   </div>
 
-<div class="errors">
-  <%= render "layouts/errors", obj: @message %>
-</div>
+   <div class="posts">
+     <%= form_with model: @message, data: {remote: true} do |f| %>
+       <%= f.text_field :message %>
+       <%= f.hidden_field :room_id, value: @room.id %>
+       <%= f.submit "送信する" %>
+     <% end %>
+   </div>
 
-<%= form_with model: @message, data: {remote: true} do |f| %>
-  <%= f.text_field :message %>
-  <%= f.hidden_field :room_id %>
-<% end %>
+ </div>
+</div>
