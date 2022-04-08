@@ -61,3 +61,5 @@ gem 'devise'
 gem 'jquery-rails'
 
 gem "acts_as_follower", '~> 0.1.1'
+gem 'impressionist'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
