@@ -1,7 +1,5 @@
-<canvas id="myChart" width="300" height="100"></canvas>
-<script> 
-import { Line, mixins } from 'vue-chartjs'
-const { reactiveProp } = mixins
+<canvas id="myLineChart"></canvas>
+  <script>
     $(document).on('turbolinks:load', function() {
       var ctx = document.getElementById("myLineChart");
       var myLineChart = new Chart(ctx, {
@@ -44,4 +42,4 @@ const { reactiveProp } = mixins
         }
       });
     });
-</script>
+  </script>
