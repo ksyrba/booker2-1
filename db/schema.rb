@@ -113,12 +113,13 @@ ActiveRecord::Schema.define(version: 2022_04_08_080757) do
   end
 
   create_table "room_users", force: :cascade do |t|
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", null: false
+    t.integer "users_id", null: false
     t.integer "room_id", null: false
     t.index ["room_id"], name: "index_room_users_on_room_id"
-    t.index ["user_id"], name: "index_room_users_on_user_id"
+    t.index ["users_id"], name: "index_room_users_on_users_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -153,5 +154,5 @@ ActiveRecord::Schema.define(version: 2022_04_08_080757) do
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "room_users", "rooms"
-  add_foreign_key "room_users", "users"
+  add_foreign_key "room_users", "users", column: "users_id"
 end
