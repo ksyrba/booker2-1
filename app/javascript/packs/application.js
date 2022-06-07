@@ -18,6 +18,8 @@ import "bootstrap"
 import '@fortawesome/fontawesome-free/js/all';
 import "../stylesheets/application"
 import Chart from 'chart.js/auto';
+require("chartkick") 
+require("chart.js") 
 
 Rails.start()
 Turbolinks.start()
