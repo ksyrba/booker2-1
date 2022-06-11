@@ -40,6 +40,19 @@
             コメント数：<%= @book.post_comment.count %>
           </td>
           <td class="view-count">閲覧数: <%= @book.tweets.count %></td>
+          <td id="star-rate">
+            <script>
+            $('#star-rate').raty({
+              size: 20,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              half: true,
+              readOnly: true,
+              score: <%= @book.evaluation %>
+            });
+            </script>
+          </td>
           <% if @book.user == current_user %>
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
             <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
