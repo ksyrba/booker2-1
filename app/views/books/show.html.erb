@@ -14,7 +14,7 @@
             <%= link_to "フォローする", user_relationships_path(@book.user), method: :post, class: "btn btn-success" %>
           <% end %>
         <% else %>
-          <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block edit_user_#{current_user.id}" do %>
+          <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
             <i class="fas fa-user-cog"></i>
           <% end %>
         <% end %>
@@ -55,7 +55,7 @@
           </td>
           <% if @book.user == current_user %>
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
-            <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
+            <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
           <% end %>
         </tr>
       </table>
