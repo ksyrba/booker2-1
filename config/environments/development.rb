@@ -77,6 +77,7 @@ Rails.application.configure do
   config.hosts << "3d7e4c2f914c42539f4630a48d7b72a3.vfs.cloud9.us-east-1.amazonaws.com"
   config.hosts << "08d4daafb28944ac94c304786ee8ed3d.vfs.cloud9.us-east-1.amazonaws.com"
   config.hosts << "1b40c26190f940babe68011b70976866.vfs.cloud9.us-east-1.amazonaws.com"
+  config.hosts << "7bf0bceec36d4f3db7d31a198d4dd2cd.vfs.cloud9.ap-northeast-1.amazonaws.com"
   
   config.web_console.whitelisted_ips = '60.72.91.162'
 end
