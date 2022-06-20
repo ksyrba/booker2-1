@@ -249,7 +249,7 @@ DEPENDENCIES
   acts_as_follower (~> 0.1.1)
   bootsnap (>= 1.4.4)
   byebug
-  capybara (>= 2.15)
+  capybara
   chart-js-rails (~> 0.1.7)
   chartkick
   devise
