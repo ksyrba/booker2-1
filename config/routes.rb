@@ -6,16 +6,16 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
   root to: "homes#top"
-  get "home/about"=>"homes#about"
+  get "home/about" => "homes#about"
   get "search" => "searches#search"
 
-  resources :books, only: [:index,:show,:edit,:create,:destroy,:update] do
+  resources :books, only: [:index, :show, :edit, :create, :destroy, :update] do
     resources :post_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
-  resources :users, only: [:index,:show,:edit,:update] do
+  resources :users, only: [:index, :show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
-    
+
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end

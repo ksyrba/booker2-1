@@ -6,21 +6,21 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @book = Book.new
-    
-    @today_book =  @books.created_today
+
+    @today_book = @books.created_today
     @yesterday_book = @books.created_yesterday
     @twodays_ago_book = @books.created_2days_ago
     @threedays_ago_book = @books.created_3days_ago
     @fourdays_ago_book = @books.created_4days_ago
     @fivedays_ago_book = @books.created_5days_ago
     @sixdays_ago_book = @books.created_6days_ago
-    
+
     @this_week_book = @books.created_this_week
     @last_week_book = @books.created_last_week
-    
+
     @currentRoomUser = RoomUser.where(user_id: current_user.id)
     @receiveUser = RoomUser.where(user_id: @user.id)
-    
+
     unless @user.id == current_user.id
       @currentRoomUser.each do |cu|
         @receiveUser.each do |u|
